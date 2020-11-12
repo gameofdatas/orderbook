@@ -102,7 +102,6 @@ func (p *Pricer) Compute() float64 {
 			}
 			i++
 		}
-		return cost
 	}
 	// return 0 if current total standing size is less than the target size
 	return cost

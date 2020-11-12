@@ -16,3 +16,24 @@ The set of all standing bids and asks is called a "limit order book", or just a 
 Your task is to write a program, Pricer, that analyzes such a log file. Pricer takes one command-line argument: target-size. Pricer then reads a market data log on standard input. As the book is modified, Pricer prints (on standard output) the total expense you would incur if you bought target-size shares (by taking as many asks as necessary, lowest first), and the total income you would receive if you sold target-size shares (by hitting as many bids as necessary, highest first). Each time the income or expense changes, it prints the changed value.
 
 Read more about the problem [here](docs/problem.html).
+
+## Solution
+
+- Use Map to keep track of Orders coming in and removing the orders in O(1) time.
+- Use TreeMap(internally uses red-back tree for insertion, deletion and other operations) to key the price sorted in O(logN) time to calculate the expense/income
+
+## Steps to run
+
+The program expects two input:
+
+- input_path : inputPath for a file of Order book events.
+- target_size : targetSize is total size shares to be sold or bought for a side
+
+Follow below commands to run
+```
+make build
+./orderbook pricer -i {input_path} -t {target_size}
+
+```
+
+**Note: The application expects an input file similar to [this](example/pricer_small.in) and prints the output one by one on a console**
